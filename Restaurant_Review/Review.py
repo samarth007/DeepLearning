@@ -8,9 +8,9 @@ from nltk.corpus import stopwords
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from tensorflow.python.keras.callbacks import EarlyStopping
-from tensorflow.python.keras.layers import LSTM, Dense, Embedding
+from tensorflow.python.keras.layers import LSTM, Dense, Embedding,RNN
 from tensorflow.python.keras.models import Sequential
-
+from tensorflow.python.keras.metrics import Precision,Recall
 
 data=pd.read_csv('E:\pythonProject\Restaurant_Review\Chrome_Review.csv')
 
@@ -45,8 +45,11 @@ cb=EarlyStopping(monitor='loss',min_delta=1,patience=10,mode='min')
 model=Sequential()
 model.add(Embedding(voc_size,vector_dimension,input_length=sentence_length))
 model.add(LSTM(100))
+# model.add(Dense(units=10,kernel_initializer='he_uniform',activation='relu',input_shape=(X.shape[1],)))
+# model.add(Dense(units=8,kernel_initializer='he_uniform',activation='relu'))
+# model.add(Dense(units=5,kernel_initializer='he_uniform',activation='relu'))
 model.add(Dense(output_class,kernel_initializer='glorot_uniform',activation='softmax'))
-model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
+model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy',Precision(),Recall()])
 model.fit(x_train,y_train,epochs=10,batch_size=80)
 y_pred=model.predict(x_test)
 
