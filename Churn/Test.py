@@ -6,9 +6,9 @@ from tensorflow.python.keras.layers import Dense,Dropout
 from tensorflow.python.keras.models import Sequential
 from tensorflow.python.keras.activations import relu,sigmoid
 from sklearn.metrics import confusion_matrix
-
-
-data=pd.read_csv('Churn_Modelling.csv')
+from time import time
+t=time()
+data=pd.read_csv('E:\pythonProject\Churn\Churn_Modelling.csv')
 df=data.drop(['RowNumber','CustomerId','Surname'],axis=1)
 
 
@@ -39,3 +39,4 @@ y_pred=model.predict(x_test)
 y_pred=np.where(y_pred>0.5,1,0)
 cm=confusion_matrix(y_pred,y_test)
 print(cm)
+print(t-time())

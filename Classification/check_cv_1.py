@@ -1,6 +1,6 @@
 import cv2
 
-input=cv2.imread('E:\pythonProject\Classification\sudeep.jpg') # to load image
+input=cv2.imread('E:\pythonProject\Classification\sachin.jpg') # to load image
 # print(input.shape)
 # cv2.imshow('Hello',input) # first paramter-title, second parameter--image variable
 # cv2.waitKey(0)
