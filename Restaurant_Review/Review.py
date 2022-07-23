@@ -3,8 +3,10 @@ import numpy as np
 import pandas as pd
 from keras_preprocessing.sequence import pad_sequences
 from keras_preprocessing.text import one_hot
+import nltk
 from nltk import WordNetLemmatizer
 from nltk.corpus import stopwords
+# nltk.download('popular')
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from tensorflow.python.keras.callbacks import EarlyStopping
@@ -12,7 +14,7 @@ from tensorflow.python.keras.layers import LSTM, Dense, Embedding,RNN
 from tensorflow.python.keras.models import Sequential
 from tensorflow.python.keras.metrics import Precision,Recall
 
-data=pd.read_csv('E:\pythonProject\Restaurant_Review\Chrome_Review.csv')
+data=pd.read_csv('D:\DeepLearning\Restaurant_Review\Chrome_Review.csv')
 
 data=data.drop(['Developer Reply','Version'],axis=1)
 new_data=data.dropna(axis=0)

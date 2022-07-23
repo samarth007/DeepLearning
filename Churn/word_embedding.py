@@ -1,5 +1,5 @@
 from keras_preprocessing.text import one_hot
-from tensorflow.python.keras.layers import Embedding
+from tensorflow.python.keras.layers import Embedding,LSTM,Dense
 from keras_preprocessing.sequence import pad_sequences
 from tensorflow.python.keras.models import Sequential
 import numpy as np
@@ -22,5 +22,7 @@ Y=np.array(label)
 dim=20
 model=Sequential()
 model.add(Embedding(voc_size,dim,input_length=sent_length))
+model.add(LSTM(100))
+model.add(Dense(units=1,kernel_initializer='glorot_uniform',activation='sigmoid'))
 model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
-model.fit(X,Y,epochs=1)
+model.fit(X,Y,epochs=10)
