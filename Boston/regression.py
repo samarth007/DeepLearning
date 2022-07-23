@@ -21,7 +21,7 @@ data=pd.concat([Initial_X,Initial_Y],axis=1)
 
 print(data.shape)
 
-df=data[(np.abs(stats.zscore(data))<3).all(axis=1)]
+df=data[(np.abs(stats.zscore(data))<3).all(axis=1)]  #removing outlier
 
 # To visvualize outlier in each feature
 def plot_boxplot(df,feature):
@@ -29,8 +29,8 @@ def plot_boxplot(df,feature):
    plt.grid(False)
    plt.show()
 
-# for i in data:
-#    plot_boxplot(data,i)
+for i in data:
+   plot_boxplot(data,i)
 
 # Detecting outlier in each feature
 # def detectOutliers(d,feature):
@@ -48,7 +48,7 @@ def plot_boxplot(df,feature):
 # for i in data:
 #   outlier_index_list.extend(detectOutliers(data,i))
 
-# #To remove outliers from each feature
+#To remove outliers from each feature
 # def remove_outlier(d,outlierIndex):
 #   sortedList=sorted(set(outlierIndex))
 #   d=d.drop(sortedList)

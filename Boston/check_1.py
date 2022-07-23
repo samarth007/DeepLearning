@@ -3,7 +3,7 @@ from tensorflow.python.keras.layers import Dense
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-data=pd.read_csv('book.csv')
+data=pd.read_csv(r'D:\DeepLearning\Boston\book.csv')
 X=data.drop('labels',axis=1)
 Y=data.labels
 print(X.shape[1])

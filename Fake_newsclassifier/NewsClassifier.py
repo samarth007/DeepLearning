@@ -11,7 +11,7 @@ from nltk.corpus import stopwords
 # nltk.download('stopwords')
 import re
 
-data=pd.read_csv('train.csv')
+data=pd.read_csv(r'D:\\DeepLearning\\Fake_newsclassifier\\train.csv')
 data=data.dropna()
 X=data.drop('label',axis=1)
 Y=data['label']

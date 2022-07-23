@@ -1,4 +1,3 @@
-from matplotlib.pyplot import axis
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
@@ -9,7 +8,7 @@ from tensorflow.python.keras.activations import relu,sigmoid
 from sklearn.metrics import confusion_matrix
 from scipy import stats
 
-data=pd.read_csv('E:\pythonProject\Churn\Churn_Modelling.csv')
+data=pd.read_csv('D:\DeepLearning\Churn\Churn_Modelling.csv')
 geo=pd.get_dummies(data[['Geography','Gender']],drop_first=True)
 df=pd.concat([data,geo],axis=1)
 df=data.drop(['RowNumber','CustomerId','Surname','Geography','Gender'],axis=1)
